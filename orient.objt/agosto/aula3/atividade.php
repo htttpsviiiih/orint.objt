@@ -90,7 +90,7 @@
     
         public function __toString()
         {
-             $dado = sprintf(" +Novo produto cadastrado+ \nDescrição: %s\nMedida: %s\nValor Unitário: %.2f\nQuantidade Desejada: %d\nValor Total: %.2f", 
+             $dado = sprintf("\nDescrição: %s\nMedida: %s\nValor Unitário: %.2f\nQuantidade Desejada: %d\nValor Total: %.2f", 
                 $this->descricao, 
                 $this->medida, 
                 $this->valorUnitario, 
