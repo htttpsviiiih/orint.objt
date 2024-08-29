@@ -38,34 +38,53 @@ class Pessoa {
 }
 
 $cadastro = array();
+$opcao = 0;
 
-$a = readline("Prima um número maior que 0, ou um caracter diferente de (N) caso queira fazer cadastro: ");
-while ($a != "0" && $a != "N") {
-    $pessoa = new Pessoa();
-    echo "================================_CADASTRO_==================================== \n";
-    $nome = readline("Digite seu nome, por favor: ");
-    $pessoa->setNome($nome);
-    
-    echo "-----------------------------------------------------------------------------\n";
-    $sobrenome = readline("Digite seu sobrenome, por favor: ");
-    $pessoa->setSobrenome($sobrenome);
-    
-    echo "-----------------------------------------------------------------------------\n";
-    $idade = readline("Digite sua idade, por favor: ");
-    $pessoa->setIdade($idade);
-    
-    echo "--------------------------------------------------------------------------------------------------------------\n";
-    echo $pessoa . "\n";
-    array_push($cadastro, $pessoa);
-    echo "--------------------------------------------------------------------------------------------------------------\n";
-    $a = readline("Prima um número maior que 0, ou um caracter diferente de (N) caso queira fazer outro cadastro: ");
-}
-    echo "====================================_TODOS OS CADASTROS_=======================================================\n";
-    foreach ($cadastro as $cad) {
-        printf("Nome: %s | Sobrenome: %s | Idade: %d\n", 
-               $cad->getNome(), 
-               $cad->getSobrenome(), 
-               $cad->getIdade());
+do {
+    echo "\n-----------MENU-----------\n";
+    echo "1- Inserir\n";
+    echo "2- Listar\n";
+    echo "0- SAIR\n";
+    $opcao = readline("Escolha a função que deseja executar, ou prima 0 para encerrar: ");
+
+    switch ($opcao) {
+        case 0:
+            echo "Programa encerrado\n";
+            break;
+        
+        case 1:
+            $pessoa = new Pessoa();
+            echo "================================_CADASTRO_==================================== \n";
+            $nome = readline("Digite o nome que deseja cadastrar, por favor: ");
+            $pessoa->setNome($nome);
+            
+            echo "-----------------------------------------------------------------------------\n";
+            $sobrenome = readline("Digite o sobrenome, por favor: ");
+            $pessoa->setSobrenome($sobrenome);
+            
+            echo "-----------------------------------------------------------------------------\n";
+            $idade = readline("Digite a idade da pessoa cadastrada, por favor: ");
+            $pessoa->setIdade($idade);
+            
+            echo "------------------------------------------------------------------------------\n";
+            array_push($cadastro, $pessoa);
+            break;
+
+        case 2:
+            echo "====================================_TODOS OS CADASTROS_=======================================\n";
+            if (count($cadastro) > 0) {
+                foreach ($cadastro as $cad) {
+                    printf("Nome: %s | Sobrenome: %s | Idade: %d\n", 
+                        $cad->getNome(), 
+                        $cad->getSobrenome(), 
+                        $cad->getIdade());
+                }
+            } else {
+                echo "Nenhuma pessoa cadastrada até o momento.\n";
+            }
+            break;
+
+        default:
+            echo "Opção INVÁLIDA!\n";
     }
-
-echo "Cadastro finalizado\n";
+} while ($opcao != 0);

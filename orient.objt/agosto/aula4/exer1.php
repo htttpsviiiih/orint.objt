@@ -68,7 +68,7 @@
                 return $dado;
         }
     }
-        $escolas = array();
+        $escolas = [];
         for ($i=1; $i <5; $i++) { 
             $escola = new Escola();
             echo "\n======================== _Cadastro de escolas_ ================================\n";
@@ -82,31 +82,62 @@
             $quantidade = readline("Digite a quantidade de alunos: ");
             $escola->setQuantidade($quantidade);
             echo "-----------------------------------------------------------------------------\n";
-            echo $escola."\n";
+            //echo $escola."\n";
 
             array_push($escolas,$escola);
             
         }
-        $escola1 = $escolas[0];
-        $escola2 = $escolas[1];
-        $escola3 = $escolas[2];
-        $escola4 = $escolas[3];
 
-        if ($escola1->getQuantidade() > $escola2->getQuantidade() && $escola1->getQuantidade() > $escola3->getQuantidade() && $escola1->getQuantidade() > $escola4->getQuantidade()) {
-            echo "A escola com o maior número de estudantes é: " . $escola1;
-        } elseif ($escola2->getQuantidade() > $escola3->getQuantidade() && $escola2->getQuantidade() > $escola4->getQuantidade() && $escola2->getQuantidade() > $escola1->getQuantidade()) {
-            echo "A escola com o maior número de estudantes é: " . $escola2;
-        } elseif ($escola3->getQuantidade() > $escola4->getQuantidade() && $escola3->getQuantidade() > $escola1->getQuantidade() && $escola3->getQuantidade() > $escola2->getQuantidade()) {
-            echo "A escola com o maior número de estudantes é: " . $escola3;
-        } else {
-            echo "A escola com o maior número de estudantes é: " . $escola4;
+        foreach ($escolas as $escola) {
+            echo $escola;
         }
-        if ($escola1->getQuantidade() < $escola2->getQuantidade() && $escola1->getQuantidade() < $escola3->getQuantidade() && $escola1->getQuantidade() < $escola4->getQuantidade()) {
-            echo "A escola com o menor número de estudantes é: " . $escola1;
-        } elseif ($escola2->getQuantidade() < $escola3->getQuantidade() && $escola2->getQuantidade() < $escola4->getQuantidade() && $escola2->getQuantidade() < $escola1->getQuantidade()) {
-            echo "A escola com o menor número de estudantes é: " . $escola2;
-        } elseif ($escola3->getQuantidade() < $escola4->getQuantidade() && $escola3->getQuantidade() < $escola1->getQuantidade() && $escola3->getQuantidade() < $escola2->getQuantidade()) {
-            echo "A escola com o menor número de estudantes é: " . $escola3;
-        } else {
-            echo "A escola com o menor número de estudantes é: " . $escola4;
+        
+        $maiorEscola = $escolas[0];
+
+        foreach ($escolas as $escola) {
+            if ($escola-> getQuantidade() > $maiorEscola->getQuantidade()) {
+                $maiorEscola = $escola;
+            }
         }
+        
+        echo "\nA escola com o maior número de estudantes é: " . $maiorEscola->getNome() . " com " . $maiorEscola->getQuantidade() . " estudantes.\n";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $escola1 = $escolas[0];
+        // $escola2 = $escolas[1];
+        // $escola3 = $escolas[2];
+        // $escola4 = $escolas[3];
+
+        // if ($escola1->getQuantidade() > $escola2->getQuantidade() && $escola1->getQuantidade() > $escola3->getQuantidade() && $escola1->getQuantidade() > $escola4->getQuantidade()) {
+        //     echo "A escola com o maior número de estudantes é: " . $escola1;
+        // } elseif ($escola2->getQuantidade() > $escola3->getQuantidade() && $escola2->getQuantidade() > $escola4->getQuantidade() && $escola2->getQuantidade() > $escola1->getQuantidade()) {
+        //     echo "A escola com o maior número de estudantes é: " . $escola2;
+        // } elseif ($escola3->getQuantidade() > $escola4->getQuantidade() && $escola3->getQuantidade() > $escola1->getQuantidade() && $escola3->getQuantidade() > $escola2->getQuantidade()) {
+        //     echo "A escola com o maior número de estudantes é: " . $escola3;
+        // } else {
+        //     echo "A escola com o maior número de estudantes é: " . $escola4;
+        // }
+        // if ($escola1->getQuantidade() < $escola2->getQuantidade() && $escola1->getQuantidade() < $escola3->getQuantidade() && $escola1->getQuantidade() < $escola4->getQuantidade()) {
+        //     echo "A escola com o menor número de estudantes é: " . $escola1;
+        // } elseif ($escola2->getQuantidade() < $escola3->getQuantidade() && $escola2->getQuantidade() < $escola4->getQuantidade() && $escola2->getQuantidade() < $escola1->getQuantidade()) {
+        //     echo "A escola com o menor número de estudantes é: " . $escola2;
+        // } elseif ($escola3->getQuantidade() < $escola4->getQuantidade() && $escola3->getQuantidade() < $escola1->getQuantidade() && $escola3->getQuantidade() < $escola2->getQuantidade()) {
+        //     echo "A escola com o menor número de estudantes é: " . $escola3;
+        // } else {
+        //     echo "A escola com o menor número de estudantes é: " . $escola4;
+        // }
