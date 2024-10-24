@@ -1,5 +1,7 @@
 <?php
 
+require_once("IFormasGeometricas.php");
+
 class Quadrado implements IFormasGeometricas
 {
     private int $altura;
