@@ -25,19 +25,19 @@
                 break;
             case 1:
                     $consumo = new Residencial();
-                    $consumo->setConsumoDiario(readline("Informe o seu consumo diário de energia: "));
+                    $consumo->setConsumoDiario(readline("Informe quantos KWh você consumiu: "));
                     echo"Você gasta diariamente R$ ". $consumo->getValorFatura()." \n";
     
                 break;
             case 2:
                     $consumo = new Comercial();
-                    $consumo->setConsumoComercial(readline("Informe o seu consumo diário de energia: "));
+                    $consumo->setConsumoComercial(readline("Informe quantos KWh você consumiu: "));
                     echo"Você gasta diariamente R$ ". $consumo->getValorFatura()." \n";
     
                 break;
             case 3:
                 $consumo = new Industrial();
-                $consumo->setConsumoDiario(readline("Informe o seu consumo diário de energia: "));
+                $consumo->setConsumoDiario(readline("Informe quantos KWh você consumiu: "));
                 echo"Você gasta diariamente R$ ".$consumo->getValorFatura()." \n";
                 break;
             default:

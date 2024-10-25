@@ -7,7 +7,12 @@
 
 
             function getValorFatura(){
-                $valorComercial = $this-> consumoComercial *1.45;
+                $valorComercial = 0;
+                if ($this->consumoComercial > 100) {
+                   $valorComercial = $this->consumoComercial*1.60;
+                } elseif ($this-> consumoComercial < 100) {
+                    $valorComercial = $this-> consumoComercial*1.45;
+                }
                 return $valorComercial;
             }
 

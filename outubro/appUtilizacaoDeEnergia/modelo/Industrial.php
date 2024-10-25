@@ -7,8 +7,12 @@
 
     function getValorFatura()
     {
-        $valorIndustrial = $this -> consumoDiario * 1.80;
-        return $valorIndustrial;
+        $valorIndustrial = 0;
+        if ($this->consumoDiario > 500) {
+            $valorIndustrial = $this->consumoDiario*2.30;
+        }elseif ($this -> consumoDiario <500) {
+            $valorIndustrial =$this-> consumoDiario*1.80;
+        } return $valorIndustrial;
     }
 
         /**
